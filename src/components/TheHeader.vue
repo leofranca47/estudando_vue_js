@@ -1,6 +1,9 @@
 <template>
     <header class="header">
-        Header
+        <h1>
+            <slot name="title" />
+        </h1>
+        <slot />
     </header>
 
 </template>

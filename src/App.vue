@@ -3,7 +3,21 @@
     <h1 :class="titleCss">
       {{ title }}
     </h1>
-    <TheHeader v-if="visible" />
+    <BaseAlert
+      variant="success"
+    >
+      Enviado com sucesso
+    </BaseAlert>
+    <p class="card">ads</p>
+    <BaseCard>
+    </BaseCard>
+    <TheHeader v-if="visible">
+      <template v-slot:title>
+        titulo
+      </template>
+      Content do TheHeader
+    </TheHeader>
+    
     <div @="show">
       v-show
     </div>
@@ -49,12 +63,16 @@
 
 <script>
 import TheHeader from "./components/TheHeader.vue";
+import BaseCard from "@/components/BaseCard.vue";
+import BaseAlert from "./components/BaseAlert.vue";
 
 export default {
   name: "App",
   components: {
     TheHeader,
-  },
+    BaseCard,
+    BaseAlert
+},
   data() {
     return {
       name1: '',
