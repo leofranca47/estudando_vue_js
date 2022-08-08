@@ -5,6 +5,7 @@
     </h1>
     <BaseAlert
       variant="success"
+      @close="onClose()"
     >
       Enviado com sucesso
     </BaseAlert>
@@ -135,6 +136,9 @@ export default {
     },
     returnValuesName(newValue, oldValue) {
       console.log(newValue, oldValue);
+    },
+    onClose() {
+      console.log('close')
     }
   },
 };

@@ -1,6 +1,12 @@
 <template>
-    <div :class="alert">
+    <div :class="alert" v-if="showAlert">
         <slot></slot>
+
+        <button
+            @click="onClick()"    
+        >
+            X
+        </button>
     </div>
 </template>
 
@@ -11,6 +17,18 @@ export default {
             type: String,
             default: 'alert'
             }
+    },
+    data() {
+        return {
+            showAlert: true
+        }
+    },
+    methods: {
+        onClick() {
+            this.$emit('close');
+            this.showAlert = false
+            console.log('clicou')
+        }
     },
     computed: {
         alert() {
@@ -24,7 +42,6 @@ export default {
     .alert {
         background-color: gray;
         border-radius: 10px;
-        text-align: center;
         padding: 5px;
     }
 
